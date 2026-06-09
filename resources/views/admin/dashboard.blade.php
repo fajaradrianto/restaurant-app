@@ -59,7 +59,7 @@
                 <h5>Pesanan 7 Hari Terakhir</h5>
             </div>
             <div class="section-body">
-                @php $maxOrders = $last7Days->pluck('orders')->max() ?? 1; @endphp
+                @php $maxOrders = max($last7Days->pluck('orders')->max() ?? 0, 1); @endphp
                 <div class="d-flex align-items-end gap-2" style="height: 180px;">
                     @foreach($last7Days as $day)
                         <div class="flex-fill text-center">
